@@ -18,6 +18,10 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+
 if __name__ == "__main__":
     app.run(debug = True)
 
