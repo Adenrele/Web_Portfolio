@@ -22,6 +22,10 @@ def blogs():
 def contact():
     return render_template("contact.html")
 
+@app.route('/hidden')
+def hidden():
+    return render_template("hidden.html")
+
 if __name__ == "__main__":
     app.run(debug = True)
 
