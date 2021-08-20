@@ -57,6 +57,11 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
+"""
+@app.route('/hidden')
+def hidden():
+    return render_template("hidden.html")
+"""
 
 if __name__ == "__main__":
     app.run(debug = True)
