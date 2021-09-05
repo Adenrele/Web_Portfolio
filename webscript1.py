@@ -6,7 +6,7 @@ from flask_mail import Message, Mail
 
 app = Flask(__name__)
 
-app.secret_key = 'Fucku&DaHoesUCameWit'
+app.secret_key = 'Fucku&DaHoesUCameWitandthensuckyourmotherinsideout229988'
 
 app.config["MAIL_DEBUG"] = True
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
@@ -14,7 +14,7 @@ app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USERNAME"] = 'adenrele.komolafe@gmail.com'
-app.config["MAIL_PASSWORD"] = 'Adekom1993!'
+app.config["MAIL_PASSWORD"] = 'qagwyd-3vehnA-ranhef'
  
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

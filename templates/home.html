@@ -1,42 +1,57 @@
 {%extends "layout.html"%}
 {%block content%}
-<div class="home">
-  <h2> About Me &emsp;
-    <a style="text-decoration: none" href="https://www.linkedin.com/in/akomolafe/" target=""
-      class="fa fa-linkedin w3-hover-opacity"> </a>
-    <a style="text-decoration: none" href="https://twitter.com/Ak_DataPharm" target=""
-      class="fa fa-twitter w3-hover-opacity"> </a>
 
-    <img src="../static/images/me.png" alt="Picture of Adenrele" class="w3-circle w3-border"
-      style="float:right;width:480px;height: 500px;">
-  </h2>
+<div class="w3-row-padding">
+  <div class="w3-third">
 
-  <h5>
-    As a data science student (MSc) and Electronic Prescrbing and Medicines Administration (EPMA) Pharmacist,
-    my professional interests lie within health data. <br> <br>
 
-    Electronic health records (EHR) systems, such as those I work with, generate and store vast quantities
-    of patient data.
-    Such data includes but is not limited to diagnoses, observations,
-    lab results, measurements, patient demographics and prescribed medication.
-    Spurred by the impactful use of predictive analytics during the COVID-19 pandemic, I embarked on my journey into
-    data science to learn how to extract valuable insights from such data. <br>
-    My journey began with SQL and led me through statistics, Python, machine learning and
-    more.
+    <div class="w3-display-container">
+      <img src="../static/images/me_2.jpeg" alt="Picture of Adenrele" class="w3-border"
+        style="float:right;width: 280px;height: 362px; border: 18px solid; padding :9px">
 
-  </h5>
-  <br>
+    </div>
+  </div>
 
-  <h2> This Website </h2>
-  <h5>
-    This website was built using Python (Flask) and deployed to a Heroku server using Git.
-    I also learnt rudimentary HTML and CSS in the process.
-    <br> <br>
+  <div class="w3-twothird">
+    <div class="w3-container w3-card w3-white w3-hover-teal">
 
-    Please feel free to leave feedback <a href="http://adenrele.herokuapp.com/contact" target="_blank"
-      class="w3-hover-text-green"> here</a>.
-  </h5>
-  </body>
+      <h2> <span class="w3-tag w3-teal w3-round">About Me</span></h2>
+
+
+      <h5>
+        As a data science student (MSc) and Electronic Prescrbing and Medicines Administration (EPMA) Pharmacist,
+        my professional interests lie within health data. <br> <br>
+
+        Electronic health records (EHR) systems, such as those I work with, generate and store vast quantities
+        of patient data.
+        Such data includes but is not limited to diagnoses, observations,
+        lab results, measurements, patient demographics and prescribed medication.
+        Spurred by the impactful use of predictive analytics during the COVID-19 pandemic, I embarked on my journey
+        into
+        data science to learn how to extract valuable insights from such data.
+      </h5>
+    </div>
+  </div>
 </div>
+  <hr>
 
+  <div class="w3-container w3-card-2 w3-white w3-hover-teal", style="width:97%; margin:auto">
+
+    <h2><span class="w3-tag w3-teal w3-round">This Website </span></h2>
+    <h5>
+      This website was built using Python (Flask) and deployed to a
+      Heroku server using Git.
+      It serves as a demonstration of skill and a portal to information about me.
+      <br> <br>
+
+      Please feel free to leave feedback <a href="http://adenrele.herokuapp.com/contact" target="_blank"
+        class="w3-hover-text-green"> here</a>.
+    </h5>
+
+  </div>
+
+
+</body>
+
+<hr>
 {%endblock%}

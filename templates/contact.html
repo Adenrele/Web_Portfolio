@@ -3,49 +3,83 @@
 
 <div class="contact">
 
-    <body>
-        <h2>Contact Me</h2>
 
-        {% if success %}
-    <p>Thank you for your message. I'll get back to you shortly.</p>
- 
+  <h1 class = "w3-text-grey">Contact Me</h1>
+
+
+  <br>
+
+  <h3>
+  <a style="text-decoration: none; " href="https://www.linkedin.com/in/akomolafe/" target=""
+  class="fa fa-linkedin w3-hover-opacity"> LinkedIn/in/AKomolafe </a>
+
+&nbsp &nbsp 
+  
+<a style="text-decoration: none; text-align: left" href="https://twitter.com/Ak_DataPharm" target=""
+  class="fa fa-twitter w3-hover-opacity">@AK_DataPharm </a>
+  </h3>
+  <hr>
+
+  <h5>Please use the form below or contact me at <a style="color:teal" class="w3-hover-opacity" href="mailto:a.komolafe@outlook.com">a.komolafe@outlook.com</a> to interact through email.</h5>
+
+  {% if success %}
+  <p>Thank you for your message. I'll get back to you shortly.</p>
+
   {% else %}
+
+  {% for message in form.name.errors %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  {% for message in form.email.errors %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  {% for message in form.subject.errors %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  {% for message in form.message.errors %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
  
-    {% for message in form.name.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.email.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.subject.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.message.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    <form action="{{ url_for('contact') }}" method=post >
-    
+
+    <form action="{{ url_for('contact') }}" method=post>
+
       {{ form.hidden_tag }}
 
-      {{ form.name.label }}
-      {{ form.name }}
- 
-      {{ form.email.label }}
-      {{ form.email }}
- 
-      {{ form.subject.label }}
-      {{ form.subject }}
- 
-      {{ form.message.label }}
-      {{ form.message }}
- 
-      {{ form.submit }}
-    </form>
- 
-  {% endif %}
+      <p>
+        {{ form.name.label }} <br>
+        {{ form.name(placeholder = 'Your name...') }}
+      </p>
 
+      <p>
+        {{ form.email.label }} <br>
+        {{ form.email (placeholder = 'Your email...') }}
+      </p>
+
+      <p>
+
+        {{ form.subject.label }} <br>
+        {{ form.subject (placeholder = 'The subject...') }}
+      </p>
+
+      <p>
+        {{ form.message.label }} <br>
+        {{ form.message (placeholder = 'The message...')}}
+      
+        {{ form.submit }}
+      </p>
+
+    </form>
+    <br><br> <br>
+  
+  <hr>
+  <h5> Note: Details entered into the contact form are used for the purpose of receiving and responding to
+    enquiries through email only.
+  </h5>
+
+  {% endif %}
+</div>
 {% endblock %}
