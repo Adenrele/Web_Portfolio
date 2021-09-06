@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, Response, render_template, request, flash
 from forms import ContactForm
 from flask_mail import Message, Mail
 
@@ -35,14 +35,27 @@ def contact():
       return render_template('contact.html', success =True)
  
   elif request.method == 'GET':
+
     return render_template('contact.html', form=form)
 
 mail= Mail(app)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template("home.html")
+
+    user_agent = request.headers.get('User-Agent')
+    user_agent = user_agent.lower()
+
+    # In your templates directory, create a mobile version of your site (mobile.index.html).
+    # Likewise, add your desired desktop template as well (desktop.index.html).
+
+    if "iphone" in user_agent:
+        return render_template('mobilehome.html')
+    elif "android" in user_agent:
+        return render_template('mobilehome.html')
+    else:
+        return render_template('home.html')
 
 @app.route('/cv')
 def cv():
@@ -56,11 +69,6 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
-"""
-@app.route('/hidden')
-def hidden():
-    return render_template("hidden.html")
-"""
 
 if __name__ == "__main__":
     app.run(debug = True)
