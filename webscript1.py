@@ -55,7 +55,7 @@ def home():
     elif "android" in user_agent:
         return render_template('mobilehome.html')
     else:
-        return render_template('home.html')
+        return render_template('mobilehome.html')
 
 @app.route('/cv')
 def cv():
