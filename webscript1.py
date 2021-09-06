@@ -8,12 +8,12 @@ app = Flask(__name__)
 app.secret_key = 'Fucku&DaHoesUCameWitandthensuckyourmotherinsideout229988'
 
 app.config["MAIL_DEBUG"] = True
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USE_TLS"] = False
-app.config["MAIL_USERNAME"] = 'adenrele.komolafe@gmail.com'
-app.config["MAIL_PASSWORD"] = 'qagwyd-3vehnA-ranhef'
+app.config["MAIL_SERVER"] = "smtp.office365.com"
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_USE_SSL"] = False
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USERNAME"] = 'a.komolafe@outlook.com'
+app.config["MAIL_PASSWORD"] = 'Adekom1993!'
  
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -24,7 +24,7 @@ def contact():
       flash('All fields are required.')
       return render_template('contact.html', form=form)
     else:
-      msg = Message(form.subject.data, sender='adenrele.komolafe@gmail.com', recipients=['a.komolafe@outlook.com'])
+      msg = Message(form.subject.data, sender='a.komolafe@outlook.com', recipients=['a.komolafe@outlook.com'])
       msg.body = """
       From: %s &lt;%s&gt;
       %s
