@@ -1,19 +1,19 @@
 from flask import Flask, render_template, request, flash
 from forms import ContactForm
 from flask_mail import Message, Mail
-
+import keys
 
 app = Flask(__name__)
 
-app.secret_key = 'Fucku&DaHoesUCameWitandthensuckyourmotherinsideout229988'
+app.secret_key = keys.app_secret_key
 
 app.config["MAIL_DEBUG"] = True
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
+app.config["MAIL_SERVER"] = keys.mailserver
+app.config["MAIL_PORT"] = keys.mailport
 app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USE_TLS"] = False
-app.config["MAIL_USERNAME"] = 'adenrele.komolafe@gmail.com'
-app.config["MAIL_PASSWORD"] = 'qagwyd-3vehnA-ranhef'
+app.config["MAIL_USERNAME"] = keys.sendmail
+app.config["MAIL_PASSWORD"] = keys.sendmailkey
  
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -24,7 +24,7 @@ def contact():
       flash('All fields are required.')
       return render_template('contact.html', form=form)
     else:
-      msg = Message(form.subject.data, sender='adenrele.komolafe@gmail.com', recipients=['a.komolafe@outlook.com'])
+      msg = Message(form.subject.data, sender=keys.sendmail, recipients=['a.komolafe@outlook.com'])
       msg.body = """
       From: %s &lt;%s&gt;
       %s
