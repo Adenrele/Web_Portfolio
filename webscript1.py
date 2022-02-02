@@ -45,6 +45,10 @@ mail= Mail(app)
 def home():
     return render_template("home.html")
 
+@app.route('/home_2_hidden_for_dev')
+def home_2():
+    return render_template("home_2.html")
+
 @app.route('/cv')
 def cv():
     return render_template("cv.html")
