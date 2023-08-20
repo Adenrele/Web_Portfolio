@@ -1,4 +1,3 @@
 # Web_Portfolio
-A portfolio website built using Flask (Python) and deployed to a Heroku server using Git. The final product (with content) can be found at https://adenrele.co.uk/
-
-This repository will be modified and include instructions on how to replicate the steps taken to create a similar web application.
+A portfolio website built using Flask (Python) and deployed using Git. The final product (with content) https://adenrele.co.uk/
+Note that it is possible to build better looking websites in a shorter period using tools such as Wordpress. However, this website serves as a demonstration of skill with Python. 
