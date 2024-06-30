@@ -1,0 +1,60 @@
+.home {
+  display: flex;
+  background-color: #333; /* Dark background color */
+  color: white; /* White text color */
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  margin: auto;
+
+}
+
+.home-image {
+  width: 60%;
+  border-radius: 80px;
+  margin-top: 18%;
+  margin-left: 25%;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* White shadow */
+}
+
+.home-text {
+  width: 60%;
+  height: auto;
+  margin-top: 20%;
+  margin-right: 18%;
+}
+
+.home-text > div{
+  margin-bottom: 2%;
+}
+
+.home-hi{
+  font-size: 1.4rem;
+  font-weight:600;
+}
+.home-profession{
+  font-size: 2.1rem;
+  font-weight:800;
+}
+
+.home-project-button a {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  border: 2px solid white;
+  border-radius: 9px;
+  height: 50px;
+  width: 200px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 20px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-project-button a:hover {
+  background-color: #555;
+}

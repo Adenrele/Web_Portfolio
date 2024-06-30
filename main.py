@@ -45,9 +45,6 @@ mail= Mail(app)
 def home():
     return render_template("home.html")
 
-@app.route('/home_2_hidden_for_dev')
-def home_2():
-    return render_template("home_2.html")
 
 @app.route('/cv')
 def cv():
@@ -61,6 +58,13 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
-
 if __name__ == "__main__":
     app.run(debug = True)
+
+
+
+    #export FLASK_DEBUG=1
+    #FLASK_APP=main.py
+    #FLASK_ENV=development
+    #flask run
+    #Run flyctl deploy --app portfolio-web-app

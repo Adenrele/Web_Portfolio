@@ -1,54 +1,27 @@
 {%extends "layout.html"%}
 {%block content%}
 
-<div class="w3-row-padding">
-  <div class="w3-third">
-
-
-    <div class="w3-display-container">
-      <img src="../static/images/me_2.jpeg" alt="Picture of Adenrele" class="w3-border"
-        style="float:right;width: 265px;height: 345px; padding :6px">
-
-    </div>
+<div class="home">
+  <div>
+    <img class="home-image" src="../static/images/me_2.jpeg" alt="Picture of Adenrele">
   </div>
   
+  <div class="home-text">
 
-  <div class="w3-twothird">
-    <div class="w3-container w3-card w3-white w3-hover-teal">
-
-      <h2> <span class="w3-tag w3-teal w3-round">About Me</span></h2>
-
-
-      <h5>
-        Adenrele is a business intelligence developer, EPMA pharmacist and MSc data science student. <br> <br>
-        His professional identity is evidence of a passion for the extraction of insights from health data
-        and the deployment of solutions engineered using the insights derived. <br><br>
-        His effectiveness is underpinned by experience and skills gained; in the deployment of health record systems in multiple NHS 
-        trusts; within analytics; and through the data science masters program.
-        
-      </h5>
-    </div>
+    <div class="home-hi">Hi, I'm Adenrele</div>
+    <div class="home-profession"> I'm a Data Scientist, BI Developer and Pharmacist!</div>
+    <div class="home-more-text">
+    My career journey is evidence of my ability to adapt and apply knowledge in professional settings. 
+    I became an expert in the use of medication, completed digital transformation projects in healthcare organisations and lead anayltics 
+    projects. Now I am using advanced statistics and programming skills to develop data-driven solutions for business problems.
+    
+    <div class="home-project-button">
+      <a href="/projects" class="button-link">VIEW MY PROJECTS</a>
+    </div>  
+  </div>
   </div>
 </div>
-  <hr>
-
-  <div class="w3-container w3-card-2 w3-white w3-hover-teal", style="width:97%; margin:auto">
-
-    <h2><span class="w3-tag w3-teal w3-round">This Website </span></h2>
-    <h5>
-      This website was built using Python (Flask) and deployed to a
-      Heroku server using Git.
-      It serves as a demonstration of skill and a portal to information about Adenrele.
-      <br> <br>
-
-      Please feel free to leave feedback <a href="http://adenrele.herokuapp.com/contact" target="_blank"
-        class="w3-hover-text-green"> here</a>.
-    </h5>
-
-  </div>
-
 
 </body>
 
-<hr>
 {%endblock%}

@@ -11,47 +11,29 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/header.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
   
-  <style>
-    html,body,h1,h2,h3,h4,h5,h6, p {font-family: "Roboto", sans-serif}
-    </style>
 
 <body>
-
-  <!-- !PAGE CONTENT! -->
-
-
-  <div class="w3-content">
-
-    <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity" style="padding: 40px;">
-
-     
-        <h1 style="color: #000000"><strong>Adenrele Komolafe's Portfolio </strong>    </h1>
-        
-      
-
-      <div class="w3-padding-8">
-        <div class="w3-bar w3-border">
-
-          <a href="{{ url_for('home') }}" class="w3-bar-item w3-button"> Home</a>
-          <a href="{{ url_for('cv') }}" class="w3-bar-item w3-button"> CV</a>
-          <a href="{{ url_for('blogs') }}" class="w3-bar-item w3-button"> Blogs</a>
-          <a href="{{ url_for('projects') }}" class="w3-bar-item w3-button"> Projects</a>
-          <a href="{{ url_for('contact') }}" class="w3-bar-item w3-button"> Contact</a>
-          </ul>
-          </nav>
-        </div>
+  <div>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('cv') }}">CV</a></li>
+          <li><a href="{{ url_for('blogs') }}">Blogs</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </nav>
     </header>
-    <div class="container">
+    <div>
       {%block content%}
       {%endblock%}
     </div>
 
-
-    <!-- Footer -->
-    <footer class="w3-container w3-padding-16 w3-dark-grey w3-center w3-large">
-
+    <footer>
       <a style="text-decoration: none" href="https://www.linkedin.com/in/akomolafe/" target=""
         class="fa fa-linkedin w3-hover-opacity"> </a>
 
@@ -61,14 +43,7 @@
         <a style="text-decoration: none" href="https://github.com/Adenrele" target=""
         class="fa fa-github w3-hover-opacity"> </a>
 
-
-      <p>Built by Adenrele Komolafe
-
-        <br>
-
-        Last Updated on the 3rd of February 2022
-
-      </p>
+      <span>  Updated on the 29th of January 2023 </span>
     </footer>
 </body>
 
