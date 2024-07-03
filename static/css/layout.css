@@ -1,0 +1,95 @@
+*{
+  font-family: "Roboto", sans-serif;
+  margin:0;
+}
+
+body{
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    background-color: #333;
+    color: white;
+    padding: 10px 20px; /* Adjust padding as needed */
+    position: fixed; /* Fix header position */
+    top: 0; /* Position at the top of the viewport */
+    right: 0; /* Position at the right of the viewport */
+    width: 100%; /* Ensure header spans full width */
+    z-index: 1000; /* Ensure it's on top of other content */
+    height: 7vh;
+  }
+  
+  header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for navigation items */
+  }
+  
+  header nav ul li {
+    margin-right: 35px; /* Adjust spacing between items */
+    padding: 3px;
+  }
+  
+  header nav ul li:last-child {
+    margin-right: 80px; /* Remove margin from last item */
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+  }
+
+  /* Basic footer styling */
+footer {
+  background-color: #333; /* Dark background color */
+  color: white; /* White text color */
+  padding: 20px; /* Padding around the content */
+  text-align: center; /* Center align text */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Styling for social media icons */
+.footer-socials {
+  margin-bottom: 10px; /* Space below the icons */
+}
+
+.footer-socials a {
+  color: white; /* White icon color */
+  font-size: 24px; /* Icon size */
+  margin: 0 10px; /* Space between icons */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer-socials a:hover {
+  color: #0073b1; /* LinkedIn blue for hover */
+}
+
+.footer-socials a.fa-twitter:hover {
+  color: #1da1f2; /* Twitter blue for hover */
+}
+
+/* commented because the github logo dissapears on hover with this colour
+.footer-socials a.fa-github:hover {
+  color: #333; 
+}
+*/
+
+/* Styling for "last updated" text */
+.last-updated {
+  display: block; /* Ensure it takes its own line */
+  margin-top: 10px; /* Space above the text */
+  font-size: 14px; /* Smaller font size */
+  color: #ccc; /* Lighter text color for the "last updated" info */
+}
+
+  

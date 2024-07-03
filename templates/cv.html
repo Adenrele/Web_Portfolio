@@ -1,99 +1,88 @@
 {%extends "layout.html"%}
 {%block content%}
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
-
+<div class="CV">
     <!-- The Grid -->
-    <div class="w3-row-padding">
-
+    <div class="CV-sections">
         <!-- Left Column -->
-        <div class="w3-third">
-
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
-                    <img src="../static/images/me_cropped.png" style="width: 295px;height: 295px; padding :15px; 
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;" , alt="Avatar">
+        <div class = "left-column">
+            
+                <div class="CV-image-div">
+                    <img class="CV-image" src="../static/images/me_cropped.png">
                 </div>
-                <div class="w3-container">
-                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
+
+                <div class="CV-key-info">
+                    <p><i class="fa fa-home fa-fw"></i>London, UK</p>
                     
                     <hr>
 
-                    <p class="w3-large"><b><i class="fa fa-bar-chart fa-fw w3-margin-right w3-text-teal"></i>Data Science
-                            Skills</b></p>
+                    <span class="left-panel-title"><i class="fa fa-bar-chart fa-fw"></i> Skills</span>
+                    
+                    <div class="subsection">
+                        <span>Statistics, Data Analysis, Machine Learning, Business Intelligence</span> 
+                    </div>
 
-                    <p>Statistics</p>
+                    <div class="subsection">
+                        <span>SQL, Python, Javascript, Git, HTML, CSS, C++ </span> 
+                    </div>
 
-                    <p>Python </p>
-
-                    <p>Machine Learning</p>
-
-                    <p>SQL</p>
-
-                    <p>C++</p>
-
-                    <p>Tableau, SAP BO</p>
-
-                    <p>Git</p>
-
-                
-
+                    <div class="subsection">
+                        <span>Firebase, SAP BO, Tableau</span> 
+                    </div>    
                     <hr>
-                    <p class="w3-large"><b><i
-                                class="fa fa-medkit fa-fw w3-margin-right w3-text-teal"></i>Domain Expertise</b></p>
-                    <p>Electronic Patient Records (ePR)</p>
 
-                    <p>Electronic Prescribing and Medicines Administration (EPMA) </p>
+                    <span class=CV-domain-expertise><b><i class="fa fa-medkit fa-fw"></i>Domain Expertise</b></span>
+                    <p>Electronic Patient Records (ePR)</p>
 
                     <p>Healthcare </p>
 
                     <p>Pharmacy </p>
 
-                    
-
                     <hr>
-                    <p class="w3-large"><b><i
-                                class="fa fa-file-text fa-fw w3-margin-right w3-text-teal"></i>Certificates</b>
-                    </p>
+                    <span ><b><i class="fa fa-file-text fa-fw"></i>Certificates</span>
+                    
                     <p>PRINCE2 Practitioner</p>
 
                     <p>PRINCE2 Foundation </p>
-
-                    
-                    <br>
-
-                    
+                  
                 </div>
-            </div><br>
 
-            <!-- End Left Column -->
+                <hr>
+
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right"></i>Membership</h2>
+                <div >
+                    <h5>
+                <p>Member - Faculty of Clinical Informatics </p>
+
+                <p>Registered - General Pharmaceutical Council of Great Britain</p>
+                    
+                    </h5>
+                </div>
+                  
         </div>
 
         <!-- Right Column -->
-        <div class="w3-twothird">
+        <div class="right-column">
 
-            <div class="w3-container w3-card w3-white">
+            <div>
 
-                <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-book fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-                <div class="w3-container">
-                    <h5 class="w3-opacity">
+                <h2 ><i class="fa fa-book fa-fw"></i>Education</h2>
+                <div>
+                    <h5>
                         <b> Data Science, MSc <br> Distinction </b> <br> The University of Sussex
                         
                     </h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020 - 2022</h6>
+                    <h6><i class="fa fa-calendar fa-fw"></i>2020 - 2022</h6>
                     
                     
                     <hr>
                 </div>
-                <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Pharmacy, MPharm <br> Upper Second-Class Honours (2:1) </b> 
+                <div>
+                    <h5><b>Pharmacy, MPharm <br> Upper Second-Class Honours (2:1) </b> 
                     <br> The University of Kent
                                              
                     </h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2012 - 2016</h6>
+                    <h6><i class="fa fa-calendar fa-fw"></i>2012 - 2016</h6>
                     
                     <p></p> 
                     
@@ -102,63 +91,49 @@
             </div>
 
 
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i
-                    class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-                    <div class="w3-container">
-                        <h5 class="w3-opacity"><b>Business Intelligence Developer <br>
+            <div>
+                <h2><i class="fa fa-suitcase fa-fw"></i>Work Experience</h2>
+                    <div>
+                        <h5 ><b>Business Intelligence Developer <br>
                                 Cerner</b>
                         </h5>
     
-                        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>February 2022 - <span
-                                class="w3-tag w3-teal w3-round">Current</span> </h6>
-                        
-                        <hr>
+                        <h6><i class="fa fa-calendar fa-fw"></i>February 2022 - <span>Current</span> </h6>
                     </div>
+                    <hr>
                     
-                <div class="w3-container">
-                    <h5 class="w3-opacity"><b>EPMA Pharmacist <br>
+                <div>
+                    <h5><b>EPMA Pharmacist <br>
                             Royal Surrey NHS Foundation Trust (Surrey Safe Care)</b>
                     </h5>
 
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>September 2020 - February 2022 </h6>
+                    <h6><i class="fa fa-calendar fa-fw w3-margin-right"></i>September 2020 - February 2022 </h6>
                     
-                    <hr>
+                    
                 </div>
-                <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Senior Pharmacist - Electronic Prescribing <br>
+
+                <hr>
+
+                <div>
+                    <h5><b>Senior Pharmacist - Electronic Prescribing <br>
                             Lewisham and Greenwich NHS Foundation Trust
                         </b></h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2019 - September 2020
+                    <h6><i class="fa fa-calendar fa-fw"></i>March 2019 - September 2020
                     </h6>
                   
                     <hr>
                 </div>
-                <div class="w3-container">
+                <div>
                     <h5 class="w3-opacity"><b> EPMA Implementation Pharmacist <br>
                             Torbay and South Devon NHS Foundation Trust</b></h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>November 2018 - March 2019
+                    <h6><i class="fa fa-calendar fa-fw"></i>November 2018 - March 2019
                     </h6>
                    
-                </div>
-                <hr>
-                <h2 class="w3-text-grey"><i
-                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Membership</h2>
-                <div class="w3-container">
-                    <h5 class="w3-text-grey">
-                <p>Member - Faculty of Clinical Informatics </p>
-
-                <p>Registered - General Pharmaceutical Council of Great Britain</p>
-                    
-                    </h5>
-                    </div>
+                </div>               
             </div>
-
-
 
             <!-- End Right Column -->
         </div>
-
         <!-- End Grid -->
     </div>
     </body>
