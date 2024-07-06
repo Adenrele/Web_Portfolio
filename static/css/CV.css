@@ -1,16 +1,16 @@
 .CV{
     display: flex;
+    flex-direction: column;
     background-color: #333; /* Dark background color */
     color: white; /* White text color */
     min-height: 100vh;
     width: 100vw;
     padding: 20px;
-    margin: auto;
-  
-  }
+    }
 
 .CV-sections
 {
+    margin: 5% auto;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -25,18 +25,18 @@
     color: #f1f1f1; /* Light text color for better readability */
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+    margin: 0 auto;
 }
 
 /* Specific styling for the left column */
 .left-column {
-    margin: 7% 2%; /* Top and bottom margin for spacing */
     width: 30vw; /* Width as a percentage of viewport width */
+    height:80%;
 }
 
 /* Specific styling for the right column */
 .right-column {
     width: 60vw; /* Width as a percentage of viewport width */
-    margin: 7% 2%; /* Top and bottom margin for spacing */
 }
 
 .CV-image{
@@ -45,6 +45,101 @@
     display: block;
     margin: auto;
 }
+
+.subtitle{
+    font-size: larger;
+    font-weight: 600;
+}
+.subsection-list{
+    margin: 3% 0;
+    list-style: disc;
+}
+
+.subsection-list li{
+    margin: 1% 0;
+}
+
+.Education, 
+.work-exp{
+    margin: 3% 0;
+}
+.Education p{
+    margin: .1% 0;
+}
+
+.location,
+.employer{
+    font-size:large;
+}
+.grade, 
+.course,
+.job-title{
+    font-size: larger;
+    font-weight: 600;
+}
+.grade{
+    font-weight:700;
+}
+
+.title-list p{
+    margin: .2% 0;
+    
+}
+
+.title-list ul {
+    padding: 2%;
+    margin: 0;
+    list-style: none; /* Remove default list styling */
+    position: relative; /* Create a containing block for absolutely positioned elements */
+}
+
+/* Styling for individual list items */
+.title-list ul li {
+    position: relative;
+    padding-left: 2%; /* Space for the custom bullet */
+    margin-bottom: 20px; /* Space between items */
+}
+
+/* Custom bullet and vertical line */
+.title-list ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 35%;
+    width: 10px; /* Diameter of the custom bullet */
+    height: 10px; /* Diameter of the custom bullet */
+    background-color: white; /* Color of the bullet */
+    border-radius: 50%; /* Make the bullet round */
+    z-index: 10;
+}
+
+/* Connecting vertical line */
+.title-list ul li::after {
+    content: '';
+    position: absolute;
+    left: .5%; /* Center the line with the bullet */
+    top: 75%; /* Start the line below the bullet */
+    width: .3%; /* Width of the line */
+    height: calc(100% + 55%); /* Extend the line below the bullet */
+    background-color: white; /* Color of the line */
+    z-index: 5; /* Ensure the line is behind the text */
+}
+
+/* Remove the vertical line for the last item */
+.title-list ul li:last-child::after {
+    display: none;
+}
+
+exp-detail{
+    list-style: circle;
+}
+
+.exp-detail li {
+    font-size: 16px; /* Increase font size */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

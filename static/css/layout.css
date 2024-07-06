@@ -21,7 +21,7 @@ header {
     right: 0; /* Position at the right of the viewport */
     width: 100%; /* Ensure header spans full width */
     z-index: 1000; /* Ensure it's on top of other content */
-    height: 7vh;
+    height: 8vh;
   }
   
   header nav ul {
