@@ -78,4 +78,13 @@ h5{
     margin: auto;
     
 }
+
+.contact-form{
+  padding: 2%; /* Increased padding for more space inside the container */
+  background-color: #1c1c1c; /* Darker background for the containers */
+  color: #f1f1f1; /* Light text color for better readability */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+  margin: 0 auto;
+}
   
