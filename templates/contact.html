@@ -3,29 +3,10 @@
 
 <div class="contact">
 
+  <h1 class = "title">Contact Me</h1>
 
-  <h1 class = "w3-text-grey">Contact Me</h1>
-
-  <br>
-
-  <h3>
-  <a style="text-decoration: none; " href="https://www.linkedin.com/in/akomolafe/" target=""
-  class="fa fa-linkedin w3-hover-opacity">&nbsp; www.LinkedIn.com/in/AKomolafe </a>
-
-<br>
   
-<a style="text-decoration: none; text-align: left" href="https://twitter.com/Ak_DataPharm" target=""
-  class="fa fa-twitter w3-hover-opacity">&nbsp; @AK_DataPharm </a>
-
-<br>
-  <a style="text-decoration: none; text-align: left" href="mailto:a.komolafe@outlook.com" target=""
-  class="fa fa-paper-plane-o w3-hover-opacity">&nbsp; a.komolafe@outlook.com </a>
-  </h3>
-
-  <hr>
-
-  <!--
-  <h5>Please use the form below or contact me at <a style="color:teal" class="w3-hover-opacity" href="mailto:a.komolafe@outlook.com">a.komolafe@outlook.com</a> to interact through email.</h5>
+  <h5>Please use the form below or contact me at <a style="color:teal" class="w3-hover-opacity" href="mailto:a.komolafe@outlook.com">a.komolafe@outlook.com</a>.</h5>
 
   {% if success %}
   <p>Thank you for your message. I'll get back to you shortly.</p>
@@ -48,39 +29,41 @@
   <div class="flash">{{ message }}</div>
   {% endfor %}
 
- 
+
+
 
     <form action="{{ url_for('contact') }}" method=post>
 
+      <div class="hide">
       {{ form.hidden_tag }}
+      </div>
 
-      <p>
+      <div class="field">
         {{ form.name.label }} <br>
         {{ form.name(placeholder = 'Your name...') }}
-      </p>
+      </div>
 
-      <p>
+      <div class="field">
         {{ form.email.label }} <br>
         {{ form.email (placeholder = 'Your email...') }}
-      </p>
+      </div>
 
-      <p>
+      <div class="field">
 
         {{ form.subject.label }} <br>
         {{ form.subject (placeholder = 'The subject...') }}
-      </p>
+      </div>
 
-      <p>
+      <div class="field">
         {{ form.message.label }} <br>
         {{ form.message (placeholder = 'The message...')}}
       </p>
 
-      <p class="w3-hover-opacity">
+      <div class="field">
         {{ form.submit }}
-      </p>
+      </div>
 
     </form>
-    <br><br> <br>
   
   <hr>
   <h5> Note: Details entered into the contact form are used for the purpose of receiving and responding to
@@ -89,6 +72,6 @@
 
   {% endif %}
 
--->
+
 </div>
 {% endblock %}
