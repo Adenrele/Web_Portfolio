@@ -24,7 +24,7 @@
     box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
 }
 
-hr{
+.project-line{
     width: 60%;
     align-self: center;
 }

@@ -65,10 +65,7 @@
     height: 150px; /* Set initial height for textarea */
   }
   
-  .contact hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+
   
   .contact h5:last-child {
     margin-bottom: 0; /* Remove bottom margin from last h5 element */
@@ -77,7 +74,7 @@
 h5{
     align-self: center;
 }
-hr{
+.contact-line{
     margin: auto;
     
 }

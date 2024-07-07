@@ -45,6 +45,9 @@
     display: block;
     margin: auto;
 }
+.cv-line {
+    width: 100%;
+}
 
 .subtitle{
     font-size: larger;
