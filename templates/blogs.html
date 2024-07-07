@@ -1,43 +1,54 @@
 {%extends "layout.html"%}
 {%block content%}
-<div class="Blogs">
-<h1 class = "w3-text-grey" >Blogs</h1>
+<div class="blogs">
 
+    <h1 class = "title" >Blogs</h1>
 
-<div class="w3-container w3-card w3-white">   
-    <h3 style="color:teal" > <a class="w3-hover-opacity" href= https://towardsdatascience.com/nhs-english-prescibing-data-epd-analysis-using-python-part-2-aa990e4e47dd> NHS English Prescribing Data (EPD) Analysis using Python (Part 2)</a> </h3> 
+    <div class="blog-box">   
+        <h3 style="color:teal" > <a class="w3-hover-opacity" href= https://data-pharm.medium.com/dont-be-led-astray-on-kaggle-a8a98cdbcbf6> Don’t be Led Astray on Kaggle!</a> </h3> 
+        
     
-   
-       <h5>In part 2, I show how much more efficient it is to extract the data using SQL before cleaning. Highlights from exploratory 
-           data analysis are shared and I demonstrate the production of a simple distributed program in 
-           preparation for computationally expensive tasks. <br> <br> 
-
-           This blog can also be found in the <a class="w3-hover-text-blue w3-hover-opacity" style="text-decoration:none"
-                    href=https://nhs-pycom.net/blog.html>
-                    <span class="w3-tag w3-blue w3-round">NHS Python Community Website.</span></a> </h5>
-       </h5>
-       <br> 
-   </div>
-
-<hr>
-
-<div class="w3-container w3-card w3-white">  
+        <h5>
+            Analysis of a cleaned "Diabetes Health Indicators" dataset for usefulness in classifying patients revealed deep flaws in the data,
+            methodolgy used by fellow Kagglers and emphasised the importance of justifying decisions in each stage of the data science process. Lessons learnt 
+            complete with visualisations can be read in the linked blog.
+        </h5>
+        
+    </div>
+    <hr>
+    <div class="blog-box">   
+        <h3 style="color:teal" > <a class="w3-hover-opacity" href= https://towardsdatascience.com/nhs-english-prescibing-data-epd-analysis-using-python-part-2-aa990e4e47dd> NHS English Prescribing Data (EPD) Analysis using Python (Part 2)</a> </h3> 
+        
     
-    <h3 style="color:teal" > <a class="w3-hover-opacity" href= https://towardsdatascience.com/nhs-english-prescribing-data-analysis-using-python-9d86ec610880> NHS English Prescribing Data (EPD) Analysis using Python (Part 1)</a> </h3> 
- 
+        <h5>In part 2, I show how much more efficient it is to extract the data using SQL before cleaning. Highlights from exploratory 
+            data analysis are shared and I demonstrate the production of a simple distributed program in 
+            preparation for computationally expensive tasks. <br> <br> 
 
-    <h5>Part one focuses on the use of Requests and Pandas to extract data from the open data portal (CKAN) API.<br>
-       Time, memory and storage efficiency of the method was explored. <br> <br>
+            This blog can also be found in the <a class="w3-hover-text-blue w3-hover-opacity" style="text-decoration:none"
+                        href=https://nhs-pycom.net/blog.html>
+                        <span class="w3-tag w3-blue w3-round">NHS Python Community Website.</span></a> </h5>
+        </h5>
+        
+    </div>
 
-       This blog can also be found in the <a class="w3-hover-text-blue w3-hover-opacity" style="text-decoration:none"
-                    href=https://nhs-pycom.net/blog.html>
-                    <span class="w3-tag w3-blue w3-round">NHS Python Community Website.</span></a> </h5>
-    </h5>
+    <hr>
 
-    <br> 
-</div>
+    <div class="blog-box">  
+        
+        <h3 style="color:teal" > <a class="w3-hover-opacity" href= https://towardsdatascience.com/nhs-english-prescribing-data-analysis-using-python-9d86ec610880> NHS English Prescribing Data (EPD) Analysis using Python (Part 1)</a> </h3> 
+    
 
-<hr>
+        <h5>Part one focuses on the use of Requests and Pandas to extract data from the open data portal (CKAN) API.<br>
+        Time, memory and storage efficiency of the method was explored. <br> <br>
+
+        This blog can also be found in the <a class="w3-hover-text-blue w3-hover-opacity" style="text-decoration:none"
+                        href=https://nhs-pycom.net/blog.html>
+                        <span class="w3-tag w3-blue w3-round">NHS Python Community Website.</span></a> </h5>
+        </h5>
+
+    </div>
+
+
 
 </div>
 {%endblock%}
