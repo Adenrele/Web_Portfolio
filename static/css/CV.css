@@ -89,7 +89,9 @@
     margin: .2% 0;
     
 }
-
+.mobile{
+    display: none;
+}
 .title-list ul {
     padding: 2%;
     margin: 0;
@@ -187,5 +189,11 @@ exp-detail{
     height: calc(100% + 55%); /* Extend the line below the bullet */
     background-color: white; /* Color of the line */
     z-index: 5; /* Ensure the line is behind the text */
+}
+.desktop{
+    display: none;
+}
+.mobile{
+    display:inline
 }
 }
