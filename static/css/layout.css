@@ -34,17 +34,34 @@ header {
   
   header nav ul li {
     margin-right: 35px; /* Adjust spacing between items */
-    padding: 3px;
   }
   
   header nav ul li:last-child {
-    margin-right: 80px; /* Remove margin from last item */
+    margin-right: 30px; /* Remove margin from last item */
+  }
+
+  header nav ul li:nth-child(5) {
+    border-right: 2px solid white;
+    padding-right: 35px; /* Ensure padding on the right side to space the border */
   }
   
   header nav ul li a {
     text-decoration: none;
     color: white;
     font-size: medium;
+  }
+
+  header nav ul li a.social-icon {
+    font-size: 20px; /* Icon size */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  header nav ul li a.social-icon:hover {
+    color: #0073b1; /* LinkedIn blue for hover */
+  }
+  
+  header nav ul li a.fa-twitter:hover {
+    color: #1da1f2; /* Twitter blue for hover */
   }
 
   /* Basic footer styling */
@@ -106,14 +123,27 @@ footer {
   }
 
   header nav ul li {
-    margin: 0 10px; /* Add margin for vertical spacing */
+    margin: 0 9px; /* Add margin for vertical spacing */
   }
   
   header nav ul li:last-child {
-    margin: 0 10px; /* Add margin for last item */
+    margin: 0 0px; /* Add margin for last item */
   }
   
   header nav ul li a {
     font-size: larger; /* Increase font size */
+  }
+  a.social-icon{
+    display: none;
+  }
+
+  header nav ul li:nth-child(5) {
+    border-right: none;
+    padding-right: 0px; /* Ensure padding on the right side to space the border */
+  }
+
+  header nav ul li:nth-child(5) {
+    border-right: none;
+    padding-right: 0px;
   }
 }

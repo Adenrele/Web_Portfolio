@@ -9,14 +9,40 @@
     margin-top: 7vh;
   }
   
-  .contact .title {
-    margin-bottom: 20px;
-  }
   
-  .contact h5 {
-    margin-bottom: 20px;
-  }
-  
+ .contact-socials{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 3% auto;
+ }
+  /* Styling for social media icons */
+.contact-socials a {
+  color: white; /* White icon color */
+  font-size: 24px; /* Icon size */
+  margin: 0 10px; /* Space between icons */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for social media icons */
+.contact-socials a.fa-linkedin:hover {
+  color: #0073b1; /* LinkedIn blue for hover */
+}
+
+.contact-socials a.fa-twitter:hover{
+  color: #1da1f2; /* Twitter blue for hover */
+}
+
+
+.contact-socials a.fa-envelope:hover{
+  color: #4CAF50;
+}
+
+.contact-socials a.fa-github:hover {
+  color: #6e5494; /* GitHub purple for hover */
+}
+
   .contact .field {
     margin-bottom: 10px;
   }
@@ -94,7 +120,7 @@ h5{
     color: white; /* White text color */
     min-height: 100vh;
     width: 100vw;
-    padding: 20px;
+    padding: 30px;
     margin-top: 5vh;
   }
   .contact form{
@@ -106,5 +132,12 @@ h5{
     width: 90%;
     margin: 0 auto;
   }
+
+  .contact-socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 7% auto;
+   }
 }
   
