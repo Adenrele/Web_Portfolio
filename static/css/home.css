@@ -58,3 +58,30 @@
 .home-project-button a:hover {
   background-color: #555;
 }
+
+@media (max-width: 768px) {
+  .home {
+    display: flex;
+    flex-direction: column;
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    min-height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    margin-top: 10%;
+    padding-bottom: 950px;
+  }
+
+  .home-image {
+    width: 60%;
+    border-radius: 60px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* White shadow */
+    margin: 10% 20% 10% 20%; /* Add margin to separate the image and text */
+  }
+
+  .home-text {
+    width: 85%; /* Adjust width to ensure it fits well on smaller screens */
+    margin: auto;
+    padding: 10px;
+  }
+}

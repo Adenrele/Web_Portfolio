@@ -93,4 +93,27 @@ footer {
   color: #ccc; /* Lighter text color for the "last updated" info */
 }
 
+@media (max-width: 768px) {
+  header {
+    align-items: flex-start; /* Align items to the start */
+    padding: 10px; /* Adjust padding */
+    height: auto; /* Auto height */
+  }
   
+  header nav ul {
+    flex-direction: row;
+    width: 100%; /* Full width */
+  }
+
+  header nav ul li {
+    margin: 0 10px; /* Add margin for vertical spacing */
+  }
+  
+  header nav ul li:last-child {
+    margin: 0 10px; /* Add margin for last item */
+  }
+  
+  header nav ul li a {
+    font-size: larger; /* Increase font size */
+  }
+}

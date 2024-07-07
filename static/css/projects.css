@@ -28,3 +28,25 @@
     width: 60%;
     align-self: center;
 }
+
+@media (max-width: 768px) {
+    .projects{
+        display: flex;
+        flex-direction: column;
+        background-color: #333; /* Dark background color */
+        color: white; /* White text color */
+        min-height: 100vh;
+        width: 100%;
+        padding: 20px;
+        margin-top: 5vh;
+    }
+    .project-box{
+        margin: 2% auto;
+        width: 95%;
+        padding: 5%; /* Increased padding for more space inside the container */
+        background-color: #1c1c1c; /* Darker background for the containers */
+        color: #f1f1f1; /* Light text color for better readability */
+        border-radius: 20px; /* Rounded corners */
+        box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+    }
+}

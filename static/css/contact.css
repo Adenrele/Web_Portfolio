@@ -24,6 +24,12 @@
   .contact form {
     width: 50%;
     align-self: center;
+    padding: 2%; /* Increased padding for more space inside the container */
+  background-color: #1c1c1c; /* Darker background for the containers */
+  color: #f1f1f1; /* Light text color for better readability */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+  margin: 0 auto;
   }
   
   .contact form .hide {
@@ -79,12 +85,26 @@ h5{
     
 }
 
-.contact-form{
-  padding: 2%; /* Increased padding for more space inside the container */
-  background-color: #1c1c1c; /* Darker background for the containers */
-  color: #f1f1f1; /* Light text color for better readability */
-  border-radius: 20px; /* Rounded corners */
-  box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
-  margin: 0 auto;
+
+@media (max-width: 768px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    min-height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    margin-top: 5vh;
+  }
+  .contact form{
+    padding: 5%; /* Increased padding for more space inside the container */
+    background-color: #1c1c1c; /* Darker background for the containers */
+    color: #f1f1f1; /* Light text color for better readability */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+    width: 90%;
+    margin: 0 auto;
+  }
 }
   
