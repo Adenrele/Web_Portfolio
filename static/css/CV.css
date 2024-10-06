@@ -79,22 +79,19 @@
 .course,
 .job-title{
     font-size: larger;
-    font-weight: 600;
+    font-weight: 300;
 }
 .grade{
     font-weight:700;
 }
 
-.title-list p{
-    margin: .2% 0;
-    
-}
 .mobile{
     display: none;
 }
+
 .title-list ul {
-    padding: 2%;
-    margin: 0;
+    padding: 1%;
+    margin: 0%;
     list-style: none; /* Remove default list styling */
     position: relative; /* Create a containing block for absolutely positioned elements */
 }
@@ -103,7 +100,11 @@
 .title-list ul li {
     position: relative;
     padding-left: 2%; /* Space for the custom bullet */
-    margin-bottom: 20px; /* Space between items */
+    margin-bottom: 1%; /* Space between items */
+}
+
+.title-list ul li:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last item */
 }
 
 /* Custom bullet and vertical line */
@@ -123,10 +124,10 @@
 .title-list ul li::after {
     content: '';
     position: absolute;
-    left: .5%; /* Center the line with the bullet */
-    top: 75%; /* Start the line below the bullet */
+    left: .46%; /* Center the line with the bullet */
+    top: 70%; /* Start the line below the bullet */
     width: .3%; /* Width of the line */
-    height: calc(100% + 55%); /* Extend the line below the bullet */
+    height: calc(100% + 20%); /* Extend the line below the bullet */
     background-color: white; /* Color of the line */
     z-index: 5; /* Ensure the line is behind the text */
 }
@@ -143,9 +144,12 @@ exp-detail{
 .exp-detail li {
     font-size: 16px; /* Increase font size */
     line-height: 1.5; /* Adjust line height for better readability */
+    padding: 0.3% 0 0.5% 0%;
 }
 
-
+.job-title,
+.title-list{
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -174,11 +178,6 @@ exp-detail{
     margin: 10% 0;
 }
 
-.title-list ul li {
-    position: relative;
-    padding-left: 5%; /* Space for the custom bullet */
-    margin-bottom: 20px; /* Space between items */
-}
 /* Connecting vertical line */
 .title-list ul li::after {
     content: '';
