@@ -111,7 +111,12 @@ h5{
     
 }
 
-
+.success-email{
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
 @media (max-width: 768px) {
   .contact {
     display: flex;
