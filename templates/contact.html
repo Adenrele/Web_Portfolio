@@ -1,9 +1,9 @@
-{%extends "layout.html"%}
-{%block content%}
+{% extends "layout.html" %}
+{% block content %}
 
 <div class="contact">
 
-  <h1 class = "title">Contact Me</h1>
+  <h1 class="title">Contact Me</h1>
 
   <div class="contact-socials">
     <a style="text-decoration: none" href="https://www.linkedin.com/in/akomolafe/" target="_blank" class="fa fa-linkedin"> </a>
@@ -12,59 +12,47 @@
     <a style="text-decoration: none" href="mailto:a.komolafe@outlook.com" target="" class="fa fa-envelope"> </a>
   </div>
 
-  
-  
-
-  {% if success %}
-  <p>Thank you for your message. I'll get back to you shortly.</p>
-
-  {% else %}
-
-  {% for message in form.name.errors %}
-  <div class="flash">{{ message }}</div>
-  {% endfor %}
-
-  {% for message in form.email.errors %}
-  <div class="flash">{{ message }}</div>
-  {% endfor %}
-
-  {% for message in form.subject.errors %}
-  <div class="flash">{{ message }}</div>
-  {% endfor %}
-
-  {% for message in form.message.errors %}
-  <div class="flash">{{ message }}</div>
-  {% endfor %}
-
-
-
-
-    <form action="{{ url_for('contact') }}" method=post>
-
+    <form action="{{ url_for('contact') }}" method="post">
+      {% if success %}
+      <div class="success-email">
+       <p>Thank you for your message. I'll get back to you shortly.</p>
+     </div>
+     {% else %}
       <div class="hide">
-      {{ form.hidden_tag }}
+        {{ form.hidden_tag() }}
       </div>
 
       <div class="field">
         {{ form.name.label }} <br>
         {{ form.name(placeholder = 'Your name...') }}
+        {% for message in form.name.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
       </div>
 
       <div class="field">
         {{ form.email.label }} <br>
-        {{ form.email (placeholder = 'Your email...') }}
+        {{ form.email(placeholder = 'Your email...') }}
+        {% for message in form.email.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
       </div>
 
       <div class="field">
-
         {{ form.subject.label }} <br>
-        {{ form.subject (placeholder = 'The subject...') }}
+        {{ form.subject(placeholder = 'The subject...') }}
+        {% for message in form.subject.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
       </div>
 
       <div class="field">
         {{ form.message.label }} <br>
-        {{ form.message (placeholder = 'The message...')}}
-      </p>
+        {{ form.message(placeholder = 'The message...') }}
+        {% for message in form.message.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      </div>
 
       <div class="field">
         {{ form.submit }}
@@ -72,13 +60,11 @@
 
     </form>
   
-  <hr class="contact-line">
-  <h5> Note: Details entered into the contact form are used for the purpose of receiving and responding to
-    enquiries through email only.
-  </h5>
+    <hr class="contact-line">
+    <h5>Note: Details entered into the contact form are used for the purpose of receiving and responding to enquiries through email only.</h5>
 
   {% endif %}
 
-
 </div>
+
 {% endblock %}
