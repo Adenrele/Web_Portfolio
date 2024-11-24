@@ -98,4 +98,38 @@
         border-radius: 20px; /* Rounded corners */
         box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
     }
+
+        /* Center the entire upload-content section */
+    .upload-content {
+        display: flex; /* Enable Flexbox */
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        text-align: center; /* Center text inside the container */
+    }
+
+    /* Ensure the form elements are aligned */
+    .upload-content form {
+        display: flex;
+        flex-direction: column; /* Stack form elements */
+        align-items: center; /* Center form elements horizontally */
+    }
+
+    /* Style the "Choose file" input */
+    input[type="file"] {
+        display: block; /* Ensure it aligns properly */
+        font-size: 16px; /* Match the rest of the content */
+        padding: 0.3rem; /* Optional: Add padding */
+        border: 1px solid #ccc; /* Optional: Add a border */
+        border-radius: 5px; /* Optional: Rounded corners */
+        cursor: pointer; /* Pointer cursor for better UX */
+    }
+
+    .title{
+        justify-self: center;
+        text-align: center;
+    }
+
+
+
 }
