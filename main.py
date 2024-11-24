@@ -148,6 +148,6 @@ def process_file():
             flash('Invalid file type. Please upload a CSV file.')
             return redirect(request.url)
     
-    return render_template("job.html")  # Render the upload form
+    return render_template("job.html")  
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=3000)

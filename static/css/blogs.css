@@ -1,8 +1,8 @@
 .blogs{
     display: flex;
     flex-direction: column;
-    background-color: #333; /* Dark background color */
-    color: white; /* White text color */
+    background-color: #333; 
+    color: white; 
     min-height: 100vh;
     width: 100%;
     padding: 20px;
@@ -28,46 +28,46 @@ input[type="file"] {
 }
 
 .upload_button {
-    background-color: #28a745; /* Primary green */
-    color: white; /* Text color */
-    padding: 1rem 3rem; /* Spacing */
-    border: none; /* No border */
-    border-radius: 8px; /* Smooth rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Slightly bolder font */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #28a745; 
+    color: white; 
+    padding: 1rem 3rem; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     transition: 
         background-color 0.3s ease, 
         transform 0.2s ease, 
-        box-shadow 0.2s ease; /* Smooth transitions */
+        box-shadow 0.2s ease; 
 }
 
-/* Hover effect */
+
 .upload_button:hover {
-    background-color: #218838; /* Darker green for hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
-    transform: translateY(-2px); /* Lift on hover */
+    background-color: #218838; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-2px); 
 }
 
 /* Active effect */
 .upload_button:active {
-    background-color: #1e7e34; /* Even darker green for click */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
-    transform: translateY(1px); /* Slight press effect */
+    background-color: #1e7e34; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transform: translateY(1px); 
 }
 
 /* Focused effect */
 .upload_button:focus {
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Accessible green outline */
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); 
 }
 .flash-messages {
     margin-top: 20px;
     padding: 10px;
-    background-color: #f8d7da; /* Light red background */
-    color: #721c24; /* Dark red text */
-    border: 1px solid #f5c6cb; /* Border color */
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb;
     border-radius: 5px;
 }
 .flash-messages p {
@@ -75,7 +75,7 @@ input[type="file"] {
 }
 
 .title{
-    color: #f1f1f1; /* Light text color for better readability */
+    color: #f1f1f1; 
     align-self: center; 
 }
 
@@ -88,8 +88,8 @@ input[type="file"] {
     .blogs{
         display: flex;
         flex-direction: column;
-        background-color: #333; /* Dark background color */
-        color: white; /* White text color */
+        background-color: #333; 
+        color: white; 
         min-height: 100vh;
         width: 100%;
         padding: 20px;
@@ -99,37 +99,35 @@ input[type="file"] {
     .blog-box{
         margin: 2% auto;
         width: 95%;
-        padding: 5%; /* Increased padding for more space inside the container */
-        background-color: #1c1c1c; /* Darker background for the containers */
-        color: #f1f1f1; /* Light text color for better readability */
-        border-radius: 20px; /* Rounded corners */
-        box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+        padding: 5%; 
+        background-color: #1c1c1c; 
+        color: #f1f1f1; 
+        border-radius: 20px; 
+        box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2);
     }
 
-        /* Center the entire upload-content section */
     .upload-content {
-        display: flex; /* Enable Flexbox */
-        flex-direction: column; /* Stack children vertically */
-        justify-content: center; /* Center vertically */
-        align-items: center; /* Center horizontally */
-        text-align: center; /* Center text inside the container */
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
     }
 
-    /* Ensure the form elements are aligned */
+
     .upload-content form {
         display: flex;
-        flex-direction: column; /* Stack form elements */
-        align-items: center; /* Center form elements horizontally */
+        flex-direction: column; 
+        align-items: center; 
     }
 
-    /* Style the "Choose file" input */
     input[type="file"] {
-        display: block; /* Ensure it aligns properly */
-        font-size: 16px; /* Match the rest of the content */
-        padding: 0.3rem; /* Optional: Add padding */
-        border: 1px solid #ccc; /* Optional: Add a border */
-        border-radius: 5px; /* Optional: Rounded corners */
-        cursor: pointer; /* Pointer cursor for better UX */
+        display: block; 
+        font-size: 16px; 
+        padding: 0.3rem; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        cursor: pointer; 
         width: 90%;
     }
 
