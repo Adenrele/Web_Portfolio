@@ -123,7 +123,7 @@
         border: 1px solid #ccc; /* Optional: Add a border */
         border-radius: 5px; /* Optional: Rounded corners */
         cursor: pointer; /* Pointer cursor for better UX */
-        width: 60%;
+        width: 70%;
     }
 
     .title{
