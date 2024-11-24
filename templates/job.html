@@ -1,0 +1,41 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class="blogs">
+
+    <h1 class = "title" >Medtronic Tech Test Question 1 Program</h1>
+
+    <div class="blog-box">        
+        <div class="upload-section">
+            <h3>Upload Your CSV File</h3>
+            <form action="{{ url_for('process_file') }}" method="POST" enctype="multipart/form-data">
+                <label for="file">Select CSV file:</label><br>
+                <input type="file" id="file" name="file" accept=".csv" required><br><br>
+                <button class = "upload_button" type="submit">Upload and Process</button>
+            </form>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+        <h5>
+            This program accepts CSVs as provided for the tech test and returns the pair of users with the greates Cosine similarity score.
+            <br><br>
+            Limitations and Assumptions
+            <ul>
+                <li>An assumption is made that the CSV will be in the same format provided in the test.</li>
+                <li>This program assumes there are no duplicates as the provided CSV did not contain any.</li>
+                <li> This program does not account for situations where multiple pairs or more than 2 people combined have the highest score.</li>
+            </ul>
+        </h5>
+        
+    </div>
+ 
+</div>
+{%endblock%}

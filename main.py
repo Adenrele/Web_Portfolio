@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash,redirect, url_for
 from forms import ContactForm
 from flask_mail import Message, Mail
 from flask_wtf.csrf import CSRFProtect
@@ -6,6 +6,11 @@ import os
 from dotenv import load_dotenv
 import requests
 from requests_oauthlib import OAuth2Session
+from similarity_program import compute_highest_similarity_from_csv 
+
+UPLOAD_FOLDER = 'uploads'  # Folder where uploaded files will be stored
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists
+
 
 # Load the .env file
 load_dotenv()
@@ -18,6 +23,7 @@ TOKEN_URL = 'https://oauth2.googleapis.com/token'
 
 # Flask configuration
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.getenv("app_secret_key")
 
 # Set mail configuration
@@ -105,5 +111,43 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
+@app.route('/Medtronic_Hire_Adenrele', methods=['GET', 'POST'])
+def process_file():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part in the request.')
+            return redirect(request.url)
+
+        file = request.files['file']
+
+        if file.filename == '':
+            flash('No file selected.')
+            return redirect(request.url)
+
+        if file and file.filename.endswith('.csv'):
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(file_path)
+            
+            # Process the file
+            try:
+                user1, user2, similarity = compute_highest_similarity_from_csv(file_path)
+                flash(f"The highest similarity is between {user1} and {user2} with a score of {similarity:.4f}")
+            except Exception as e:
+                flash(f"An error occurred while processing the file: {e}")
+            
+            # Delete the file after processing
+            try:
+                os.remove(file_path)
+                flash('File deleted after processing.')
+            except Exception as e:
+                flash(f"An error occurred while deleting the file: {e}")
+            
+            
+            return redirect(request.url)
+        else:
+            flash('Invalid file type. Please upload a CSV file.')
+            return redirect(request.url)
+    
+    return render_template("job.html")  # Render the upload form
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=3000)

@@ -19,6 +19,53 @@
     box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
 }
 
+.upload_button {
+    background-color: #28a745; /* Primary green */
+    color: white; /* Text color */
+    padding: 1rem 3rem; /* Spacing */
+    border: none; /* No border */
+    border-radius: 8px; /* Smooth rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Slightly bolder font */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 
+        background-color 0.3s ease, 
+        transform 0.2s ease, 
+        box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+/* Hover effect */
+.upload_button:hover {
+    background-color: #218838; /* Darker green for hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    transform: translateY(-2px); /* Lift on hover */
+}
+
+/* Active effect */
+.upload_button:active {
+    background-color: #1e7e34; /* Even darker green for click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    transform: translateY(1px); /* Slight press effect */
+}
+
+/* Focused effect */
+.upload_button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Accessible green outline */
+}
+.flash-messages {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb; /* Border color */
+    border-radius: 5px;
+}
+.flash-messages p {
+    margin: 0;
+}
+
 .title{
     color: #f1f1f1; /* Light text color for better readability */
     align-self: center; 
