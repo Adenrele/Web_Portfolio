@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
+from scipy.spatial.distance import cdist
 
 def check_csv_file_with_pandas(file_path: str):
     """
@@ -47,7 +47,6 @@ def process_csv(file_path: str):
 
     Example:
         Input CSV:
-            Users,Times
             User1,12:34:56
             User2,08:45:12
 
@@ -63,14 +62,13 @@ def process_csv(file_path: str):
     df["Time_cos"] = np.cos(2 * np.pi * df["Seconds_from_midnight"] / 86400)
     return df
 
-
-def obtain_cosine_similarity_array(df):
+def obtain_euclidean_distance_array(df):
     """
-    Computes cosine similarity between user activity times based on sine and cosine 
-    transformations of time data.
+    Computes the Euclidean distance between users based on sine and cosine transformations
+    of their activity times.
 
     The function groups the input DataFrame by user, averages the sine and cosine 
-    transformations of their activity times, and calculates pairwise cosine similarity 
+    transformations of their activity times, and calculates pairwise Euclidean distance 
     between these average time vectors.
 
     Parameters:
@@ -82,78 +80,63 @@ def obtain_cosine_similarity_array(df):
     Returns:
         tuple: A tuple containing:
             - numpy.ndarray: A 2D array where each element (i, j) represents the 
-              cosine similarity between user `i` and user `j`.
+              Euclidean distance between user `i` and user `j`.
             - pandas.DataFrame: A DataFrame with averaged sine and cosine time 
               values for each user. Columns:
                 - "Users": User identifiers.
                 - "Time_sin": Averaged sine values of activity times.
                 - "Time_cos": Averaged cosine values of activity times.
-
-    Example:
-        Input DataFrame:
-            Users  Time_sin  Time_cos
-            User1   0.984808 -0.173648
-            User1   0.923880 -0.382683
-            User2   0.707107  0.707107
-            User2   0.866025  0.500000
-
-        Output:
-            user_similarity_array:
-                [[1.         0.8660254]
-                 [0.8660254  1.        ]]
-            
-            df_time_vectors:
-                Users  Time_sin  Time_cos
-                User1  0.954344 -0.278166
-                User2  0.786566  0.603553
     """
-    # Group by users and compute the mean of sine and cosine transformations
     df_time_vectors = df.groupby("Users")[["Time_sin", "Time_cos"]].mean().reset_index()
     
-    # Compute cosine similarity for the time vectors
-    user_similarity_array = cosine_similarity(df_time_vectors[["Time_sin", "Time_cos"]])
+    # Calculate pairwise Euclidean distances
+    user_distance_array = cdist(df_time_vectors[["Time_sin", "Time_cos"]], df_time_vectors[["Time_sin", "Time_cos"]], metric="euclidean")
     
-    return user_similarity_array, df_time_vectors
+    return user_distance_array, df_time_vectors
 
 
-def highest_similarity_pair(user_similarity_array, df_time_vectors):
+
+def lowest_distance_pair(user_distance_array, df_time_vectors):
     """
-    Identifies the pair of users with the highest cosine similarity.
+    Identifies the pair of users with the smallest Euclidean distance.
 
-    This function creates a DataFrame to represent the cosine similarity between 
-    users, excludes diagonal values (which represent self-similarity), and determines 
-    the pair of users with the maximum similarity.
+    This function creates a DataFrame to represent the Euclidean distances between 
+    users, excludes diagonal values (which represent self-distance), and determines 
+    the pair of users with the minimum distance.
 
     Parameters:
-        user_similarity_array (numpy.ndarray): A 2D array where each element (i, j) 
-            represents the cosine similarity between user `i` and user `j`.
+        user_distance_array (numpy.ndarray): A 2D array where each element (i, j) 
+            represents the Euclidean distance between user `i` and user `j`.
         df_time_vectors (pandas.DataFrame): A DataFrame containing:
             - "Users": User identifiers.
 
     Returns:
         tuple: A tuple containing:
-            - str: Identifier of the first user in the most similar pair.
-            - str: Identifier of the second user in the most similar pair.
-            - float: The highest cosine similarity value between the two users.
+            - str: Identifier of the first user in the closest pair (smallest distance).
+            - str: Identifier of the second user in the closest pair.
+            - float: The smallest Euclidean distance value between the two users.
     """
-    user_similarity_df = pd.DataFrame(user_similarity_array, index=df_time_vectors["Users"],  columns=df_time_vectors["Users"])
-    # For cosine similarity, we want the highest value (excluding the diagonal, since that will always be 1)
-    mask = np.triu(np.ones(user_similarity_df.shape), k=1)  # Mask to exclude the diagonal
-    masked_similarity = user_similarity_df.values * mask  # Apply the mask to remove diagonal
-    # Find the index of the maximum similarity value
-    max_sim_index = np.unravel_index(np.argmax(masked_similarity), masked_similarity.shape)
-    user1 = user_similarity_df.index[max_sim_index[0]]
-    user2 = user_similarity_df.columns[max_sim_index[1]]
-    max_similarity_value = masked_similarity[max_sim_index]
-    return user1, user2, max_similarity_value
+    user_distance_df = pd.DataFrame(user_distance_array, index=df_time_vectors["Users"],  columns=df_time_vectors["Users"])
+    
+    mask = np.eye(user_distance_df.shape[0], dtype=bool)  # Eye matrix will be True for the diagonal
+    masked_distance = user_distance_df.values.copy()
+    masked_distance[mask] = np.inf  # Set diagonal values to infinity to exclude them
 
-def compute_highest_similarity_from_csv(file_path):
+    min_dist_index = np.unravel_index(np.argmin(masked_distance), masked_distance.shape)  # Find min distance
+    user1 = user_distance_df.index[min_dist_index[0]]  # User 1
+    user2 = user_distance_df.columns[min_dist_index[1]]  # User 2
+    min_distance_value = masked_distance[min_dist_index]  # Minimum distance value
+    
+    return user1, user2, min_distance_value
+
+
+def compute_lowest_distance_from_csv(file_path):
     """
-    Computes the pair of users with the highest cosine similarity from a CSV file.
+    Computes the pair of users with the smallest Euclidean distance from a CSV file.
 
     This function checks if the provided file is a valid CSV, processes the data to 
-    calculate sine and cosine representations of user times, computes cosine similarity 
-    between users, and identifies the pair of users with the highest similarity.
+    calculate sine and cosine representations of user times, computes Euclidean distance 
+    between users, and identifies the pair of users with the smallest distance.
 
     Parameters:
         file_path (str): The path to the CSV file containing user data with columns:
@@ -162,9 +145,9 @@ def compute_highest_similarity_from_csv(file_path):
 
     Returns:
         tuple: A tuple containing:
-            - str: Identifier of the first user in the most similar pair.
-            - str: Identifier of the second user in the most similar pair.
-            - float: The highest cosine similarity value between the two users.
+            - str: Identifier of the first user in the closest pair.
+            - str: Identifier of the second user in the closest pair.
+            - float: The smallest Euclidean distance between the two users.
 
     Notes:
         If the file is not a valid CSV, or if there is an issue during processing, 
@@ -180,9 +163,8 @@ def compute_highest_similarity_from_csv(file_path):
     check_result = check_csv_file_with_pandas(file_path)
     if check_result == True:
         df = process_csv(file_path)
-        user_distance_array, df_time_vectors = obtain_cosine_similarity_array(df)
-        user1, user2, max_similarity_value = highest_similarity_pair(user_distance_array, df_time_vectors)
-        return user1, user2, max_similarity_value
+        user_distance_array, df_time_vectors = obtain_euclidean_distance_array(df)  # Updated function for Euclidean distance
+        user1, user2, min_distance_value = lowest_distance_pair(user_distance_array, df_time_vectors)  # Updated pair finder
+        return user1, user2, min_distance_value
     else:
-        print("Innapropriate file")
-
+        print("Inappropriate file")

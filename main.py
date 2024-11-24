@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 import requests
 from requests_oauthlib import OAuth2Session
-from similarity_program import compute_highest_similarity_from_csv 
+from similarity_program import compute_lowest_distance_from_csv
 
 UPLOAD_FOLDER = 'uploads'  # Folder where uploaded files will be stored
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists
@@ -130,8 +130,8 @@ def process_file():
             
             # Process the file
             try:
-                user1, user2, similarity = compute_highest_similarity_from_csv(file_path)
-                flash(f"The highest similarity is between {user1} and {user2} with a cosine similarity score of {similarity:.4f}")
+                user1, user2, similarity = compute_lowest_distance_from_csv(file_path)
+                flash(f"The highest similarity is between {user1} and {user2} with an ecludian distnace score of {similarity:.4f}")
             except Exception as e:
                 flash(f"An error occurred while processing the file: {e}")
             
