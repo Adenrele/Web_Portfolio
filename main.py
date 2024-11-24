@@ -111,7 +111,7 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
-@app.route('/Medtronic_Hire_Adenrele', methods=['GET', 'POST'])
+@app.route('/medtronic_hire_adenrele', methods=['GET', 'POST'])
 def process_file():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -131,7 +131,7 @@ def process_file():
             # Process the file
             try:
                 user1, user2, similarity = compute_highest_similarity_from_csv(file_path)
-                flash(f"The highest similarity is between {user1} and {user2} with a score of {similarity:.4f}")
+                flash(f"The highest similarity is between {user1} and {user2} with a cosine similarity score of {similarity:.4f}")
             except Exception as e:
                 flash(f"An error occurred while processing the file: {e}")
             
