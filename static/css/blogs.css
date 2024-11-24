@@ -12,13 +12,20 @@
 .blog-box{
     margin: 2% auto;
     width: 80%;
-    padding: 2%; /* Increased padding for more space inside the container */
-    background-color: #1c1c1c; /* Darker background for the containers */
-    color: #f1f1f1; /* Light text color for better readability */
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); /* Light shadow for dark background */
+    padding: 2%; 
+    background-color: #1c1c1c; 
+    color: #f1f1f1; 
+    border-radius: 20px; 
+    box-shadow: 0 0px 25px rgba(255, 255, 255, 0.2); 
 }
-
+input[type="file"] {
+    display: block; 
+    font-size: 16px; 
+    padding: 0.3rem; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
 
 .upload_button {
     background-color: #28a745; /* Primary green */
@@ -123,7 +130,7 @@
         border: 1px solid #ccc; /* Optional: Add a border */
         border-radius: 5px; /* Optional: Rounded corners */
         cursor: pointer; /* Pointer cursor for better UX */
-        width: 70%;
+        width: 90%;
     }
 
     .title{
