@@ -181,9 +181,9 @@ exp-detail{
     content: '';
     position: absolute;
     left: 1.45%; /* Center the line with the bullet */
-    top: 10%; /* Start the line below the bullet */
+    top: 28%; /* Start the line below the bullet */
     width: .3%; /* Width of the line */
-    height: calc(100%); /* Extend the line below the bullet */
+    height: calc(100% +10%); /* Extend the line below the bullet */
     background-color: white; /* Color of the line */
     z-index: 5; /* Ensure the line is behind the text */
 }
@@ -195,7 +195,7 @@ exp-detail{
 }
 .title-list ul li {
     position: relative;
-    padding-left: 5%; /* Space for the custom bullet */
+    padding-left: 6%; /* Space for the custom bullet */
     margin-bottom: 1%; /* Space between items */
 }
 
