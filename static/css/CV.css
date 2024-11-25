@@ -180,7 +180,7 @@ exp-detail{
 .title-list ul li::after {
     content: '';
     position: absolute;
-    left: 1.45%; /* Center the line with the bullet */
+    left: 1.4%; /* Center the line with the bullet */
     top: 35%; /* Start the line below the bullet */
     width: .3%; /* Width of the line */
     height: calc(100% +5%); /* Extend the line below the bullet */
