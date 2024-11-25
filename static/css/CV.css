@@ -99,7 +99,7 @@
 /* Styling for individual list items */
 .title-list ul li {
     position: relative;
-    padding-left: 5%; /* Space for the custom bullet */
+    padding-left: 2%; /* Space for the custom bullet */
     margin-bottom: 1%; /* Space between items */
 }
 
@@ -147,9 +147,7 @@ exp-detail{
     padding: 0.3% 0 0.5% 0%;
 }
 
-.job-title,
-.title-list{
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -195,4 +193,10 @@ exp-detail{
 .mobile{
     display:inline
 }
+.title-list ul li {
+    position: relative;
+    padding-left: 5%; /* Space for the custom bullet */
+    margin-bottom: 1%; /* Space between items */
+}
+
 }
