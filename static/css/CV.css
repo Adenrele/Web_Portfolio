@@ -182,10 +182,10 @@ exp-detail{
 .title-list ul li::after {
     content: '';
     position: absolute;
-    left: 1.5%; /* Center the line with the bullet */
-    top: 70%; /* Start the line below the bullet */
+    left: 1.45%; /* Center the line with the bullet */
+    top: 80%; /* Start the line below the bullet */
     width: .3%; /* Width of the line */
-    height: calc(100% + 55%); /* Extend the line below the bullet */
+    height: calc(100%); /* Extend the line below the bullet */
     background-color: white; /* Color of the line */
     z-index: 5; /* Ensure the line is behind the text */
 }
