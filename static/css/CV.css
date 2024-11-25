@@ -99,7 +99,7 @@
 /* Styling for individual list items */
 .title-list ul li {
     position: relative;
-    padding-left: 2%; /* Space for the custom bullet */
+    padding-left: 5%; /* Space for the custom bullet */
     margin-bottom: 1%; /* Space between items */
 }
 
@@ -164,7 +164,7 @@ exp-detail{
 
     .left-column,
 .right-column {
-    padding: 5%; /* Increased padding for more space inside the container */
+    padding: 4%; /* Increased padding for more space inside the container */
     background-color: #1c1c1c; /* Darker background for the containers */
     color: #f1f1f1; /* Light text color for better readability */
     border-radius: 20px; /* Rounded corners */
@@ -183,7 +183,7 @@ exp-detail{
     content: '';
     position: absolute;
     left: 1.45%; /* Center the line with the bullet */
-    top: 80%; /* Start the line below the bullet */
+    top: 70%; /* Start the line below the bullet */
     width: .3%; /* Width of the line */
     height: calc(100%); /* Extend the line below the bullet */
     background-color: white; /* Color of the line */
