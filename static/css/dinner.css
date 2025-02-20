@@ -1,0 +1,134 @@
+
+
+/* Dinner Section */
+.dinner {
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    margin: auto;
+    padding-bottom: 900px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.head_items{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+.bottom_items{
+    margin-top: 60px
+}
+
+.dinner flash-messages{
+    max-width: 100px;
+}
+.dinner h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffff;
+    margin-bottom: 10px;
+}
+
+.dinner h2 {
+    font-size: 1.8rem;
+    color: #ffff;
+    margin-bottom: 20px;
+}
+
+.dinner h3{
+    font-size: 1.8rem;
+    color: black;
+    margin-bottom: 20px; 
+}
+
+/* Menu Container */
+.menu-container {
+    background: white;
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels and Select Menus */
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    color: #2c3e50;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .dinner {
+
+        margin-top: 40px;
+    }
+
+    .menu-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .dinner h1 {
+        font-size: 2rem;
+    }
+
+    .dinner h2 {
+        font-size: 1.5rem;
+    }
+}

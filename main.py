@@ -149,5 +149,52 @@ def process_file():
             return redirect(request.url)
     
     return render_template("job.html")  
+
+from flask import Flask, render_template, request, flash, redirect, url_for
+from flask_mail import Message, Mail
+import os
+
+@app.route('/dinner', methods=['GET', 'POST'])
+def dinner():
+    if request.method == 'POST':
+        # Get form data
+        name = request.form.get('name')
+        allergies = request.form.get('allergies')
+        starter = request.form.get('starter')
+        main = request.form.get('main')
+        dessert = request.form.get('dessert')
+
+        # Validate form (ensure name and at least one choice is selected)
+        if not name or not starter or not main or not dessert:
+            flash('Please fill in your name and select all meal options.', 'danger')
+            return redirect(url_for('dinner'))
+
+        # Prepare email content
+        email_body = f"""
+        Dinner Menu Selection:
+        
+        Name: {name}
+        Food Allergies: {allergies if allergies else 'None'}
+
+        Starter: {starter}
+        Main Course: {main}
+        Dessert: {dessert}
+        """
+
+        # Send email
+        msg = Message("Dinner Menu Submission", sender=os.getenv("SEND_MAIL"), recipients=[os.getenv("receivemail")])
+        msg.body = email_body
+
+        try:
+            mail.send(msg)
+            flash('Your menu selection has been sent successfully!', 'success')
+        except Exception as e:
+            flash(f'Failed to send your menu selection. Error: {e}', 'danger')
+
+        return redirect(url_for('dinner'))
+
+    return render_template("dinner.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=3000)
