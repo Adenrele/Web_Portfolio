@@ -66,7 +66,7 @@ input[type="text"]:focus {
     max-width: 500px;
     margin: auto;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* White shadow */
 }
 
 /* Labels and Select Menus */
