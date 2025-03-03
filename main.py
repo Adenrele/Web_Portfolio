@@ -6,7 +6,6 @@ import os
 from dotenv import load_dotenv
 import requests
 from requests_oauthlib import OAuth2Session
-from similarity_program import compute_lowest_distance_from_csv
 
 UPLOAD_FOLDER = 'uploads'  # Folder where uploaded files will be stored
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists
@@ -32,8 +31,8 @@ app.config["MAIL_PORT"] = os.getenv("mailport")
 app.config["MAIL_USE_SSL"] = False
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USERNAME"] = os.getenv("SEND_MAIL")
-app.config["MAIL_DEFAULT_SENDER"] = os.getenv("SEND_MAIL")  # Set default sender
-app.config['MAIL_PASSWORD'] = os.getenv("APP_PASSWORD")  # Your password or app password
+app.config["MAIL_DEFAULT_SENDER"] = os.getenv("SEND_MAIL")  
+app.config['MAIL_PASSWORD'] = os.getenv("APP_PASSWORD") 
 receivemail = os.getenv("receivemail")
 
 mail = Mail(app)
@@ -111,89 +110,6 @@ def projects():
 def blogs():
     return render_template("blogs.html")
 
-@app.route('/medtronic_hire_adenrele', methods=['GET', 'POST'])
-def process_file():
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            flash('No file part in the request.')
-            return redirect(request.url)
-
-        file = request.files['file']
-
-        if file.filename == '':
-            flash('No file selected.')
-            return redirect(request.url)
-
-        if file and file.filename.endswith('.csv'):
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(file_path)
-            
-            # Process the file
-            try:
-                user1, user2, similarity = compute_lowest_distance_from_csv(file_path)
-                flash(f"The highest similarity is between {user1} and {user2} with an ecludian distance score of {similarity:.4f}.")
-            except Exception as e:
-                flash(f"An error occurred while processing the file: {e}")
-            
-            # Delete the file after processing
-            try:
-                os.remove(file_path)
-                flash('File deleted after processing.')
-            except Exception as e:
-                flash(f"An error occurred while deleting the file: {e}")
-            
-            
-            return redirect(request.url)
-        else:
-            flash('Invalid file type. Please upload a CSV file.')
-            return redirect(request.url)
-    
-    return render_template("job.html")  
-
-from flask import Flask, render_template, request, flash, redirect, url_for
-from flask_mail import Message, Mail
-import os
-
-@app.route('/dinner', methods=['GET', 'POST'])
-def dinner():
-    if request.method == 'POST':
-        # Get form data
-        name = request.form.get('name')
-        allergies = request.form.get('allergies')
-        starter = request.form.get('starter')
-        main = request.form.get('main')
-        dessert = request.form.get('dessert')
-
-        # Validate form (ensure name and at least one choice is selected)
-        if not name or not starter or not main or not dessert:
-            flash('Please fill in your name and select all meal options.', 'danger')
-            return redirect(url_for('dinner'))
-
-        # Prepare email content
-        email_body = f"""
-        Dinner Menu Selection:
-        
-        Name: {name}
-        Food Allergies: {allergies if allergies else 'None'}
-
-        Starter: {starter}
-        Main Course: {main}
-        Dessert: {dessert}
-        """
-
-        # Send email
-        msg = Message("Dinner Menu Submission", sender=os.getenv("SEND_MAIL"), recipients=[os.getenv("receivemail")])
-        msg.body = email_body
-
-        try:
-            mail.send(msg)
-            flash('Your menu selection has been sent successfully!', 'success')
-        except Exception as e:
-            flash(f'Failed to send your menu selection. Error: {e}', 'danger')
-
-        return redirect(url_for('dinner'))
-
-    return render_template("dinner.html")
 
 
 if __name__ == "__main__":
