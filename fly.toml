@@ -1,6 +1,6 @@
 # fly.toml file generated for portfolio-website on 2023-01-29T12:50:30Z
 
-app = "portfolio-website"
+app = "portfolio-web-app"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
