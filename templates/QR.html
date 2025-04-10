@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="QR_Page">
-  <form action="{{ url_for('QRCode') }}" method="POST">
+  <form action="{{ url_for('qrcode') }}" method="POST">
     <h3>Obtain Your QR Code</h3>
     <label for="url">URL:</label>
     <input type="text" id="url" name="url" placeholder="Enter your URL..." required>
@@ -38,7 +38,7 @@
   // On Clear button click
   document.getElementById("clear-btn")?.addEventListener("click", function () {
     fetch("{{ url_for('clear_qr') }}", { method: "POST" }).then(() => {
-      window.location.href = "{{ url_for('QRCode') }}";
+      window.location.href = "{{ url_for('qrcode') }}";
     });
   });
 </script>
