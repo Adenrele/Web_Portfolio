@@ -133,7 +133,7 @@ def qrcode():
 def clear_qr():
     file_name = session.pop('qr_file', None)
     if file_name:
-        file_path = os.path.join('static', file_name)
+        file_path = os.path.join('static', 'QR', file_name)
         try:
             if os.path.exists(file_path):
                 os.remove(file_path)

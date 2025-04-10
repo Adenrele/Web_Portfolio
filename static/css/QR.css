@@ -5,6 +5,7 @@
     color: white;
     min-height: 100vh;
     width: 100%;
+    padding: 30px;
     justify-content: center; /* Vertically centers content */
     align-items: center; /* Horizontally centers content */
     /* text-align: center; Centers text inside the content */
