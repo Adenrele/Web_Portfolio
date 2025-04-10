@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="QR_Page">
+  <form action="{{ url_for('QRCode') }}" method="POST">
+    <h3>Obtain Your QR Code</h3>
+    <label for="url">URL:</label>
+    <input type="text" id="url" name="url" placeholder="Enter your URL..." required>
+
+    <div class="field">
+      <button type="submit">Generate</button>
+      <button type="button" id="clear-btn">Clear</button>
+    </div>
+
+    {% if success %}
+    <div class="download-success">
+      <p>Your QR code has been created!</p>
+      <img src="{{ url_for('static', filename=file_name) }}" alt="QR Code" style="width:200px; height:auto; margin-top:10px;">
+      <p><a href="{{ url_for('static', filename=file_name) }}" download>Download QR Code</a></p>
+    </div>
+    {% endif %}
+  </form>
+</div>
+
+<script>
+  let hasSentClear = false;
+
+  function clearQRImage() {
+    if (!hasSentClear) {
+      hasSentClear = true;
+      navigator.sendBeacon("{{ url_for('clear_qr') }}");
+    }
+  }
+
+  // On page unload (close or refresh)
+  window.addEventListener("pagehide", clearQRImage);
+
+  // On Clear button click
+  document.getElementById("clear-btn")?.addEventListener("click", function () {
+    fetch("{{ url_for('clear_qr') }}", { method: "POST" }).then(() => {
+      window.location.href = "{{ url_for('QRCode') }}";
+    });
+  });
+</script>
+
+{% endblock %}

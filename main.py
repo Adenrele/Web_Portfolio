@@ -1,11 +1,12 @@
-from flask import Flask, render_template, request, flash,redirect, url_for
-from forms import ContactForm
+from flask import Flask, render_template, request, flash,redirect, url_for, session
+from forms import ContactForm, FlaskForm
 from flask_mail import Message, Mail
 from flask_wtf.csrf import CSRFProtect
 import os
 from dotenv import load_dotenv
 import requests
 from requests_oauthlib import OAuth2Session
+from QR_code import QRCreator
 
 UPLOAD_FOLDER = 'uploads'  # Folder where uploaded files will be stored
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure the folder exists
@@ -109,6 +110,38 @@ def projects():
 @app.route('/blogs')
 def blogs():
     return render_template("blogs.html")
+
+@app.route('/QRCode', methods=["GET", "POST"])
+def QRCode():
+    success = False
+    file_name = None
+
+    if request.method == "POST":
+        url = request.form.get("url")
+        if url:
+            file_name_base = url.split(".")[0]
+            file_type = "png"  # default file type
+
+            qr = QRCreator(url=url, file_name=file_name_base, file_type=file_type)
+            qr_image = qr.create_qr_code()
+            file_name = qr.save_qr(qr_image)
+            success = True
+
+    return render_template("QR.html", success=success, file_name=file_name)
+
+@app.route('/clear_qr', methods=["POST"])
+def clear_qr():
+    file_name = session.pop('qr_file', None)
+    if file_name:
+        file_path = os.path.join('static', file_name)
+        try:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+        except Exception as e:
+            print(f"Error deleting file: {e}")
+    return '', 204
+
+
 
 
 
