@@ -112,7 +112,7 @@ def blogs():
     return render_template("blogs.html")
 
 @app.route('/qrcode', methods=["GET", "POST"])
-def QRCode():
+def qrcode():
     success = False
     file_name = None
 
