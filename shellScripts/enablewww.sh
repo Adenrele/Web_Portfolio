@@ -6,3 +6,4 @@
 #then
 #One time script to enable www after cname was added 
 flyctl certs add www.adenrele.co.uk
+flyctl certs list #to check
