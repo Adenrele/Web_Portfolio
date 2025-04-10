@@ -97,13 +97,17 @@
     .QR_Page {
         display: flex;
         flex-direction: column;
-        background-color: #333; 
+        background-color: #333;
         color: white;
         min-height: 100vh;
-        margin-top: 0vh;
+        margin-top: 0;
         width: 100%;
-        padding-top: 3rem;
+        padding-top: 10rem;
+        justify-content: center; /* Vertically centers content */
+        align-items: center; /* Horizontally centers content */
+        text-align: center; /* Centers text inside the content */
     }
+
     .QR_Page form {
         width: 95%;
         padding: 20px;
