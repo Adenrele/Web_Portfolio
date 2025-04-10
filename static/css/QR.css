@@ -113,6 +113,10 @@
         padding: 20px;
     }
 
+    .QR_Page label {
+        display: block;
+    }
+
     .QR_Page .field {
         flex-direction: column;
     }
