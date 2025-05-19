@@ -34,8 +34,7 @@ class QRCreator:
         file_path = os.path.join(folder, self.file_name + "." + self.file_type)
         img.save(file_path)
         return os.path.join("QR", self.file_name + "." + self.file_type)
-
-#Example usage
-test = QRCreator(url="unzippd.co.uk", file_name="unzippd", file_type="png")
-qr_image = test.create_qr_code()
-file_name = test.save_qr(qr_image)
+    
+    def get_file_path(self, filename):
+            """Gets the full file path.  Added this method."""
+            return os.path.join(self.qr_folder, filename)

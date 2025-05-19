@@ -119,7 +119,7 @@ def qrcode():
     if request.method == "POST":
         url = request.form.get("url")
         if url:
-            file_name_base = url.split(".")[0]
+            file_name_base = "qr_image"
             file_type = "png"  # default file type
 
             qr = QRCreator(url=url, file_name=file_name_base, file_type=file_type)
@@ -131,18 +131,23 @@ def qrcode():
 
 @app.route('/clear_qr', methods=["POST"])
 def clear_qr():
-    file_name = session.pop('qr_file', None)
+    """Deletes the QR code image from the file system."""
+    # Retrieve the filename from the session.
+    file_name = session.pop('qr_file_name', None) # use the key 'qr_file_name'
     if file_name:
-        file_path = os.path.join('static', 'QR', file_name)
+        #  Use the QRCreator to get the file path.
+        qr_creator = QRCreator(url="") #  Need to instantiate, even without URL.
+        file_path = qr_creator.get_file_path(file_name)
         try:
             if os.path.exists(file_path):
                 os.remove(file_path)
+                print(f"Deleted file: {file_path}")  # Add logging
+            else:
+                print(f"File not found: {file_path}") # Add logging
         except Exception as e:
             print(f"Error deleting file: {e}")
-    return '', 204
-
-
-
+            return "Error deleting file", 500  # Return an error response
+    return '', 204 #  No content, success
 
 
 if __name__ == "__main__":
